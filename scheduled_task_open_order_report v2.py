@@ -27,7 +27,7 @@ def generate_report():
         start_time = time.time()
 
         #Login to SAP
-        subprocess.check_call(['C:\Program Files (x86)\SAP\FrontEnd\SAPgui\\sapshcut.exe', '-system=YRP', '-client=100', '-user=JLOPEZ86', '-pw=Mau148522906.'])
+        subprocess.check_call([])
 
         path = r"C:\Program Files (x86)\SAP\FrontEnd\SAPgui\saplogon.exe"
         subprocess.Popen(path)
@@ -48,13 +48,9 @@ def generate_report():
             
         #Repository for open order report
         #folderprod = "W:\\Planning\\Production\\"
-        folderdir = "C:\\Users\\jlopez86\\OneDrive - Johnson Controls\\General\\Order Status Report\\Order Status Report (Creation Repository)\\"
-        folderdir_soe = "C:\\Users\\jlopez86\\OneDrive - Johnson Controls\\General\\S&OE Dashboard\\"
-        folderdir_historical = "C:\\Users\\jlopez86\\OneDrive - Johnson Controls\\General\\Order Status Report\\Historical Data\\"
-        folderdir_month_end = "C:\\Users\\jlopez86\\OneDrive - Johnson Controls\\General\\Order Status Report\\Month End History\\"
-        folderdir_upg = "C:\\Users\\jlopez86\\OneDrive - Johnson Controls\\Documents - UPG Sales Dashboard\\Open Orders\\"
-        folderdir_desktop = "C:\\Users\\jlopez86\\OneDrive - Johnson Controls\\Desktop\\Order Report Misc\\"
-        folderdir_outputs = "C:\\Users\\jlopez86\\OneDrive - Johnson Controls\\General\\Order Status Report\\Order Status Report (Outputs)\\"
+        folderdir = "C:\\Users\\"
+        folderdir_soe = "C:\\Users\\\\"
+        
 
         #File names
         test1_file = "test1.txt"
@@ -62,8 +58,6 @@ def generate_report():
         test3_file = "test3.txt"
         dlv_status_file = "delivery order status.txt"
         so_status_file = "sales order status.txt"
-        wichitaqc_file = "Wichita QC.txt"
-        normanqc_file = "Norman QC.txt"
         incompletes_file = "Incompletes.txt"
         credithold_file = "Credit hold.txt"
         shipments_file = "Shipments.txt"
@@ -94,7 +88,7 @@ def generate_report():
         session.findById("wnd[1]/usr/subSUBSCREEN_STEPLOOP:SAPLSPO5:0150/sub:SAPLSPO5:0150/radSPOPLI-SELFLAG[1,0]").select()
         session.findById("wnd[1]/tbar[0]/btn[0]").press()
         session.findById("wnd[1]/usr/ctxtDY_PATH").text = folderdir
-        session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = wichitaqc_file
+        session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = 
         session.findById("wnd[1]/tbar[0]/btn[11]").press()
         session.findById("wnd[0]/tbar[0]/btn[3]").press()
         session.findById("wnd[0]/usr/ctxtS1_LGNUM").text = ("105")
@@ -103,7 +97,7 @@ def generate_report():
         session.findById("wnd[1]/usr/subSUBSCREEN_STEPLOOP:SAPLSPO5:0150/sub:SAPLSPO5:0150/radSPOPLI-SELFLAG[1,0]").select()
         session.findById("wnd[1]/tbar[0]/btn[0]").press()
         session.findById("wnd[1]/usr/ctxtDY_PATH").text = folderdir
-        session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = normanqc_file
+        session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = 
         session.findById("wnd[1]/tbar[0]/btn[11]").press()
         session.findById("wnd[0]/tbar[0]/btn[3]").press()
         session.findById("wnd[0]/tbar[0]/btn[3]").press()
@@ -117,7 +111,7 @@ def generate_report():
         session.findById("wnd[0]").sendVKey (0)
         session.findById("wnd[0]").sendVKey (6)
         session.findById("wnd[1]/usr/ctxtGS_SE16N_LT-NAME").text = ("order list")
-        session.findById("wnd[1]/usr/txtGS_SE16N_LT-UNAME").text = ("jlopez86")
+        session.findById("wnd[1]/usr/txtGS_SE16N_LT-UNAME").text = ("")
         session.findById("wnd[1]").sendVKey (0)
         session.findById("wnd[0]/tbar[1]/btn[8]").press()
         session.findById("wnd[0]/usr/cntlRESULT_LIST/shellcont/shell").pressToolbarContextButton ("&MB_EXPORT")
@@ -415,7 +409,7 @@ def generate_report():
         delivery = DLV_Status[['Delivery']].drop_duplicates()
 
         with pd.ExcelWriter(
-            r"C:\Users\jlopez86\OneDrive - Johnson Controls\General\Order Status Report\Order Status Report (Creation Repository)\SAP Lookups.xlsx",
+            r"",
             engine='xlsxwriter'
         ) as writer:
             sales.to_excel(writer, sheet_name='Orders', index=False)
@@ -437,7 +431,7 @@ def generate_report():
         session.findById("wnd[0]").sendVKey (0)
         session.findById("wnd[0]").sendVKey (6)
         session.findById("wnd[1]/usr/ctxtGS_SE16N_LT-NAME").text = ("orderstatus")
-        session.findById("wnd[1]/usr/txtGS_SE16N_LT-UNAME").text = ("cfletcry")
+        session.findById("wnd[1]/usr/txtGS_SE16N_LT-UNAME").text = ("")
         session.findById("wnd[1]/tbar[0]/btn[0]").press()
         session.findById("wnd[0]/usr/tblSAPLSE16NSELFIELDS_TC/btnPUSH[4,1]").setFocus()
         session.findById("wnd[0]/usr/tblSAPLSE16NSELFIELDS_TC/btnPUSH[4,1]").press()
@@ -464,7 +458,7 @@ def generate_report():
         session.findById("wnd[0]").sendVKey (0)
         session.findById("wnd[0]").sendVKey (6)
         session.findById("wnd[1]/usr/ctxtGS_SE16N_LT-NAME").text = ("orderstatus")
-        session.findById("wnd[1]/usr/txtGS_SE16N_LT-UNAME").text = ("cfletcry")
+        session.findById("wnd[1]/usr/txtGS_SE16N_LT-UNAME").text = ("")
         session.findById("wnd[1]/tbar[0]/btn[0]").press()
         session.findById("wnd[0]/usr/tblSAPLSE16NSELFIELDS_TC/btnPUSH[4,1]").setFocus()
         session.findById("wnd[0]/usr/tblSAPLSE16NSELFIELDS_TC/btnPUSH[4,1]").press()
@@ -679,7 +673,7 @@ def generate_report():
         finale = finale[finale['Status'] != "Awaiting Allocation"]
 
         coois_list = lateprod[['Material']].drop_duplicates()
-        coois_list.to_excel(r"C:\Users\jlopez86\OneDrive - Johnson Controls\General\Order Status Report\Order Status Report (Creation Repository)\COOIS.xlsx", index=False) # Change to list only for SAP pull ?
+        coois_list.to_excel(r"", index=False) # Change to list only for SAP pull ?
 
         print("Pulling COOIS list...")
 
